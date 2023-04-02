@@ -15,6 +15,23 @@ $(window).on('scroll', function () {
 
 $(document).ready(function(){
 
+  //视频弹窗播放
+  $(".blog_thumb,.blog_meta a").click(function(){
+      var title=$(this).parents(".single_blog").attr("data-title");
+      var src=$(this).parents(".single_blog").attr("data-src");
+      $(".video_inner iframe").attr("title",title);
+      $(".video_inner iframe").attr("src",src);
+      $(".video_bg").fadeIn();
+      $(".video_inner").fadeIn();
+  });
+
+  $(".video_inner span").click(function(){
+      $(".video_bg").fadeOut();
+      $(".video_inner").fadeOut();
+      $(".video_inner iframe").attr("title","");
+      $(".video_inner iframe").attr("src","");
+  });
+
 // mobile_menu
 var menu = $('ul#navigation');
 if(menu.length){
